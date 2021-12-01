@@ -2,11 +2,16 @@
 using System.Linq;
 using System.Collections.Generic;
 
-namespace AdventOfCode
+namespace AdventOfCode.Y2021
 {
-    public class Day1Second : Day
+    public class Day1 : Day2021
     {
-        public override int solve()
+        public override int SolvePart1()
+        {
+            IEnumerable<int> nums = this.GetInput(1).Select(x => int.Parse(x));
+            return nums.Zip(nums.Skip(1), (x, y) => x < y).Count(x => x);
+        }
+        public override int SolvePart2()
         {
             int WINDOW_LENGTH = 3;
 
@@ -31,3 +36,4 @@ namespace AdventOfCode
         }
     }
 }
+
